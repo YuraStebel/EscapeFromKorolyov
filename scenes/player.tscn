@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://culya4lvkehh4"]
+[gd_scene load_steps=5 format=3 uid="uid://culya4lvkehh4"]
 
 [ext_resource type="Script" uid="uid://cdvhm2dpoe848" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" path="res://scripts/player_stats.gd" id="2_g2els"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 radius = 0.3
@@ -10,7 +11,7 @@ height = 1.8
 radius = 0.3
 height = 1.8
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_mask = 3
 script = ExtResource("1_3vyb7")
 
@@ -33,3 +34,6 @@ collision_mask = 16
 
 [node name="Hand" type="Node3D" parent="CameraHolder/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6436262, -0.62806404)
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource("2_g2els")
