@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ct42w772pvbl3"]
+[gd_scene load_steps=12 format=3 uid="uid://ct42w772pvbl3"]
 
 [ext_resource type="Texture2D" uid="uid://dre3hyau4oayn" path="res://images/square256graygray.png" id="1_1kc1q"]
 [ext_resource type="PackedScene" uid="uid://culya4lvkehh4" path="res://scenes/player.tscn" id="1_s6dok"]
+[ext_resource type="PackedScene" uid="uid://dl2bxc72fq80d" path="res://scenes/damage_zone.tscn" id="2_gjmho"]
 [ext_resource type="PackedScene" uid="uid://11ecx4qkion6" path="res://scenes/cube_companion.tscn" id="3_4msxo"]
 [ext_resource type="PackedScene" uid="uid://ce5ib66t6523l" path="res://scenes/football_ball.tscn" id="4_5fb3c"]
 
@@ -45,6 +46,9 @@ shape = SubResource("BoxShape3D_grwth")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_s6dok")
+
+[node name="DamageZone" parent="StaticBody3D" instance=ExtResource("2_gjmho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.041909, 1, 3.4198585)
 
 [node name="Player" parent="." instance=ExtResource("1_s6dok")]
 
