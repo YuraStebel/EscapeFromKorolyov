@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dl2bxc72fq80d"]
 
-[ext_resource type="Script" uid="uid://fp41ibahlglu" path="res://scenes/damage_zone.gd" id="1_ppofr"]
+[ext_resource type="Script" uid="uid://fp41ibahlglu" path="res://scripts/damage_zone.gd" id="1_ppofr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qqqff"]
 
@@ -10,7 +10,8 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_0k1nd"]
 material = SubResource("StandardMaterial3D_ppofr")
 
-[node name="DamageZone" type="Area3D"]
+[node name="DamageZone" type="Area3D" groups=["enemy"]]
+collision_mask = 9
 script = ExtResource("1_ppofr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -68,6 +68,7 @@ texture_under = ExtResource("3_dqkch")
 texture_progress = ExtResource("4_qlg0r")
 
 [node name="VignetteContainer" type="PanelContainer" parent="HUD"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
