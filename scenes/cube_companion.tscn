@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://11ecx4qkion6"]
+
+[ext_resource type="PackedScene" uid="uid://doih3hryh6rc5" path="res://models/cube-companion.glb" id="1_2lgda"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swfml"]
+
+[node name="cube-companion" groups=["pickable"] instance=ExtResource("1_2lgda")]
+collision_layer = 16
+collision_mask = 19
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("BoxShape3D_swfml")
