@@ -4,7 +4,9 @@ extends CharacterBody3D
 @onready var interact_cast: RayCast3D = $CameraHolder/Camera3D/InteractCast
 
 @onready var hand: Node3D = $CameraHolder/Camera3D/Hand
+@onready var weapon_slot: Node3D = $CameraHolder/WeaponSlot
 var is_item_in_hands: bool = false
+var is_weapon_in_hands: bool = false
 
 var speed: float
 var walk_speed: float = 4.0
@@ -34,7 +36,17 @@ func _unhandled_input(event: InputEvent) -> void:
 func use():
 	if Input.is_action_just_pressed('use'):
 		var get_collision = interact_cast.get_collider()
-		if get_collision and get_collision.is_in_group('pickable') and not is_item_in_hands:
+		
+		if get_collision and get_collision is ak and not is_item_in_hands:
+			is_weapon_in_hands = true
+			is_item_in_hands = true
+			get_collision.reparent(weapon_slot)
+			get_collision.freeze = true
+			get_collision.position = Vector3.ZERO
+			get_collision.rotation = Vector3.ZERO
+			get_collision.is_in_hand = true
+		
+		elif get_collision and get_collision.is_in_group('pickable') and not is_item_in_hands:
 			is_item_in_hands = true
 			get_collision.reparent(hand)
 			get_collision.freeze = true
@@ -52,7 +64,17 @@ func use():
 
 func drop():
 	if Input.is_action_just_pressed('drop'):
-		if hand.get_child_count() > 0:
+		if is_weapon_in_hands:
+			var weapon_in_hands = weapon_slot.get_child(-1)
+			weapon_in_hands.reparent(get_tree().current_scene)
+			weapon_in_hands.is_in_hand = false
+			if weapon_in_hands is RigidBody3D:
+				weapon_in_hands.freeze = false
+				weapon_in_hands.sleeping = false
+			is_item_in_hands = false
+			is_weapon_in_hands = false
+		
+		elif hand.get_child_count() > 0:
 			var item_in_hands = hand.get_child(0)
 			item_in_hands.reparent(get_tree().current_scene)
 			if item_in_hands.is_in_group('weapon'):

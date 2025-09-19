@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://ct42w772pvbl3"]
+[gd_scene load_steps=14 format=3 uid="uid://ct42w772pvbl3"]
 
 [ext_resource type="Texture2D" uid="uid://dre3hyau4oayn" path="res://images/square256graygray.png" id="1_1kc1q"]
 [ext_resource type="PackedScene" uid="uid://culya4lvkehh4" path="res://scenes/player.tscn" id="1_s6dok"]
 [ext_resource type="PackedScene" uid="uid://11ecx4qkion6" path="res://scenes/cube_companion.tscn" id="3_4msxo"]
 [ext_resource type="PackedScene" uid="uid://ce5ib66t6523l" path="res://scenes/football_ball.tscn" id="4_5fb3c"]
-[ext_resource type="PackedScene" uid="uid://dl2bxc72fq80d" path="res://scenes/damage_zone.tscn" id="5_gjmho"]
-[ext_resource type="PackedScene" uid="uid://ca53ry6hy88us" path="res://scenes/test_gun.tscn" id="6_t7and"]
+[ext_resource type="PackedScene" uid="uid://m767lgg8vaba" path="res://scenes/damage_zone.tscn" id="5_gjmho"]
+[ext_resource type="PackedScene" uid="uid://bhxvb7g8kigmo" path="res://scenes/test_gun.tscn" id="6_t7and"]
+[ext_resource type="PackedScene" uid="uid://dsp6omqj2qbos" path="res://scenes/weapons/ka_74.tscn" id="7_ruw3y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1kc1q"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -61,3 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3283086, 0.5, 7.568202)
 
 [node name="Test_gun" parent="." instance=ExtResource("6_t7and")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 5)
+
+[node name="KA74" parent="." instance=ExtResource("7_ruw3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)

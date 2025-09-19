@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://culya4lvkehh4"]
+[gd_scene load_steps=9 format=3 uid="uid://culya4lvkehh4"]
 
 [ext_resource type="Script" uid="uid://cdvhm2dpoe848" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c1x8dk7np5pbn" path="res://scripts/player_stats.gd" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://ciljl4xkxg8te" path="res://scenes/player_model.tscn" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://b20eylweth0so" path="res://images/HUD/HPBarBackground.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://d17b47ntnvhld" path="res://images/HUD/HPBar.png" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://ck7mlm831e8km" path="res://images/HUD/vignette_dark.png" id="5_qlg0r"]
@@ -24,15 +25,21 @@ shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_3vyb7")
 
 [node name="CameraHolder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59475, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="WeaponSlot" type="Node3D" parent="CameraHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
+
+[node name="PlayerModel" parent="CameraHolder/WeaponSlot" instance=ExtResource("2_tuyoq")]
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder"]
 
 [node name="InteractCast" type="RayCast3D" parent="CameraHolder/Camera3D"]
-target_position = Vector3(0, 0, -1.5)
+target_position = Vector3(0, 0, -2)
 collision_mask = 16
 
 [node name="Hand" type="Node3D" parent="CameraHolder/Camera3D"]

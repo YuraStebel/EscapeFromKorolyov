@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdfo5jsimou6h"
-path="res://.godot/imported/KA74.glb-5d99997e937893d355dda84c5d9e9e0d.scn"
+uid="uid://bogplxuo3d717"
+path="res://.godot/imported/Player.glb-78838af86bccc68eb0935dda6e95df24.scn"
 
 [deps]
 
-source_file="res://models/KA74.glb"
-dest_files=["res://.godot/imported/KA74.glb-5d99997e937893d355dda84c5d9e9e0d.scn"]
+source_file="res://models/Player.glb"
+dest_files=["res://.godot/imported/Player.glb-78838af86bccc68eb0935dda6e95df24.scn"]
 
 [params]
 
-nodes/root_type="RigidBody3D"
-nodes/root_name=""
+nodes/root_type=""
+nodes/root_name="PlayerModel"
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
