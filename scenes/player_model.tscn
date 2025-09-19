@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciljl4xkxg8te"]
+
+[ext_resource type="PackedScene" uid="uid://bs7xof1kgg40r" path="res://models/Player.glb" id="1_fr7j6"]
+
+[node name="PlayerModel" instance=ExtResource("1_fr7j6")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)

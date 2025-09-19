@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://culya4lvkehh4"]
+[gd_scene load_steps=5 format=3 uid="uid://culya4lvkehh4"]
 
 [ext_resource type="Script" uid="uid://cdvhm2dpoe848" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://ciljl4xkxg8te" path="res://scenes/player_model.tscn" id="2_g2els"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
-radius = 0.3
+radius = 0.15
 height = 1.8
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
@@ -20,10 +21,14 @@ shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_3vyb7")
 
+[node name="PlayerModel" parent="." instance=ExtResource("2_g2els")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.069667965)
+
 [node name="CameraHolder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59475, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7059301, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder"]
 
