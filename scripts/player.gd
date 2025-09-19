@@ -40,14 +40,26 @@ func use():
 			get_collision.freeze = true
 			get_collision.position = Vector3.ZERO
 			get_collision.rotation = Vector3.ZERO
+		
+		elif get_collision and get_collision.is_in_group('weapon') and not is_item_in_hands:
+			is_item_in_hands = true
+			get_collision.is_in_hand = true
+			get_collision.reparent(hand)
+			get_collision.freeze = true
+			get_collision.position = Vector3.ZERO
+			get_collision.rotation = Vector3.ZERO
+			
 
 func drop():
 	if Input.is_action_just_pressed('drop'):
 		if hand.get_child_count() > 0:
 			var item_in_hands = hand.get_child(0)
 			item_in_hands.reparent(get_tree().current_scene)
+			if item_in_hands.is_in_group('weapon'):
+				item_in_hands.is_in_hand = false
 			if item_in_hands is RigidBody3D:
 				item_in_hands.freeze = false
+				item_in_hands.sleeping = false #хз короче не работает, но если отключить сон объекту то он не будет застывать в воздухе
 			is_item_in_hands = false
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca53ry6hy88us"]
+[gd_scene load_steps=5 format=3 uid="uid://bhxvb7g8kigmo"]
 
 [ext_resource type="Script" uid="uid://dycv22p46dyl3" path="res://scripts/test_gun.gd" id="1_gf4tl"]
 
@@ -12,7 +12,7 @@ albedo_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 material = SubResource("StandardMaterial3D_gf4tl")
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="Test_gun" type="RigidBody3D" groups=["pickable"]]
+[node name="Test_gun" type="RigidBody3D" groups=["weapon"]]
 collision_layer = 16
 collision_mask = 17
 script = ExtResource("1_gf4tl")
@@ -25,4 +25,5 @@ mesh = SubResource("BoxMesh_16teb")
 
 [node name="GunRayCast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -1000)
-collision_mask = 8
+collision_mask = 25
+collide_with_areas = true
