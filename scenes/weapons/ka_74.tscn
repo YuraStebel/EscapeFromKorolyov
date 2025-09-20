@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsp6omqj2qbos"]
+[gd_scene load_steps=5 format=3 uid="uid://dsp6omqj2qbos"]
 
 [ext_resource type="PackedScene" uid="uid://cdfo5jsimou6h" path="res://models/KA74.glb" id="1_wuupp"]
 [ext_resource type="Script" uid="uid://c7xumk8w3ir2n" path="res://scripts/weapons/ka_74.gd" id="2_o78bo"]
+[ext_resource type="AudioStream" uid="uid://c7hbt14urgiac" path="res://sounds/weapon/KA74/KA74_shoot.ogg" id="3_cjuav"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o78bo"]
 size = Vector3(0.035, 0.144104, 0.93)
@@ -19,3 +20,12 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0
 bones/0/position = Vector3(-0.1009858, 1.550371, 0.23633137)
 bones/0/rotation = Quaternion(1.3824659e-07, 0.7766241, 0.62996435, -8.262312e-08)
 bones/5/rotation = Quaternion(0.57930684, 0.40546715, -0.5793068, -0.40546718)
+
+[node name="GunRayCast" type="RayCast3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103759766, 1.6022328, -0.87635356)
+target_position = Vector3(0, 0, -1000)
+collision_mask = 25
+collide_with_areas = true
+
+[node name="ShootsAudioPlayer" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = ExtResource("3_cjuav")

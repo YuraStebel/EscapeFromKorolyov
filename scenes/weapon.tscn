@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhxvb7g8kigmo"]
+
+[ext_resource type="Script" uid="uid://dycv22p46dyl3" path="res://scripts/weapon.gd" id="1_gf4tl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r2p1t"]
+size = Vector3(0.05480957, 0.24291992, 0.9299011)
+
+[node name="Weapon" type="RigidBody3D" groups=["weapon"]]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("1_gf4tl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002380371, -0.016479492, 0.19367981)
+shape = SubResource("BoxShape3D_r2p1t")
+
+[node name="GunRayCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1000)
+collision_mask = 25
+collide_with_areas = true
+
+[node name="ShootsAudioPlayer" type="AudioStreamPlayer3D" parent="."]
